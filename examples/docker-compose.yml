@@ -1,0 +1,18 @@
+version: '3'
+services:
+        redirector:
+                image: cryptkiddie2/redirector:testing
+                container_name: redirector
+                restart: always
+                # You can leave out this section if you don't use a docker-specific reverse-proxy
+                labels:
+                        - "traefik.frontend.rule=Host:a.example.com"
+                        - "traefik.port=80"
+                        - "traefik.frontend.passHostHeader=true"
+                # Adjust these settings
+                environment:
+                        - dest=https://github.com/CryptKid/docker-redirector/
+                        - keep_uri=false
+                        - access_log=off
+                ports:
+                        - 80:80
