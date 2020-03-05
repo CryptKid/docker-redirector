@@ -3,14 +3,14 @@ A simple NGINX that redirects all traffic to a given URL.
 It is meant to be run behind a reverse proxy and redirect old/unused (Sub-)Domains.
 
 ## Config
-Configuration is kept extremly simple, all you need to do is adding up to three environmental vars in your docker-command, docker-compose-file or how ever you want to start it.
+Configuration is kept extremly simple, all you need to do is adding up to four environmental vars in your docker-command, docker-compose-file or how ever you want to start it.
 
 | Var         | Meaning                                                                                           | Example                                             |
 | ----------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | dest        | The url all traffic should go to, write only the base domain (https://a.bc.de) if you use keep\_uri | dest=https://github.com/cryptkid/docker-redirector" |
 | access\_log | The file to write an access-log to. Default: off"                                                   | access\_log=/var/log/access.log                     |
 | keep\_uri   | Keep request uri, redirect from a.example.com/bla to b.example.com/bla and not to b.example.com   | keep\_uri=true                                      |
-
+| acme\_404   | Return 404 to all requests to acme-challenges in order to prevent issues with reverse proxies     | acme\_404=true                                      |
 ## Examples
 
 ### Docker command

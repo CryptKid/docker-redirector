@@ -14,5 +14,6 @@ services:
                         - dest=https://github.com/CryptKid/docker-redirector/
                         - keep_uri=false
                         - access_log=off
+                        - acme_404=true
                 ports:
                         - 80:80

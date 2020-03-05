@@ -16,6 +16,9 @@ echo "Adding custom settings"
 if [ "$keep_uri" = "true" ]; then
 	dest="$dest\\\$request_uri"
 fi
+if [ "$acme_404" = "true" ]; then
+	exe sed -i "s/\#ACME//g" /etc/nginx/conf.d/default.conf
+fi
 exe sed -i "s/\!DEST/$dest/" /etc/nginx/conf.d/default.conf
 exe sed -i "s/\!ACCESS_LOG/$access_log/" /etc/nginx/conf.d/default.conf
 echo "Starting Webserver"
