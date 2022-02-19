@@ -1,7 +1,7 @@
 #!/bin/bash
 exe() {
-echo "Running \"$@\""
-$@
+echo "Running \"" "$@" "\""
+"$@"
 }
 echo "Installing template"
 exe cp /redirector/redirects.conf /etc/nginx/conf.d/default.conf
